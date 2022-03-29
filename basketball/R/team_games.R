@@ -35,11 +35,11 @@ team_games <- function(team_name,df){
   games <- games %>%
     mutate(result = ifelse(score_diff > 0 ,"win", "loss")) %>%
     mutate(Date = as.character(Date)) %>%
-    select(Date | opponent | site | result | points_for | points_against) %>%
+    select(Date | opponent | site | result | points_for | points_against | score_diff) %>%
     mutate(points_for = format(round(points_for, 2), nsmall = 2) ) %>%
     mutate(points_against = format(round(points_against, 2), nsmall = 2) )
    
     
   
-  return(games)
+  return(data.table(games))
 }

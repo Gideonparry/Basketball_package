@@ -28,7 +28,7 @@ win_graph <- function(team_name, df){
   )
   
   
-  team <- melt(team)
+  team <- reshape2::melt(team)
   team <- team[-1,]
   p<-ggplot(data=team, aes(x=variable, y=value, fill = variable)) +
     geom_bar(stat="identity") +
